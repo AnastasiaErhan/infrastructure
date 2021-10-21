@@ -1,0 +1,8 @@
+--- # Connection
+# ansible-playbook group.yaml
+- name: Create DevOps Group
+  hosts: localhost
+  become: true
+  become_method: sudo 
+  user: ec2-user
+  tasks:

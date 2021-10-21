@@ -1,0 +1,15 @@
+--- # Connection
+# ansible-playbook ec2.yaml
+- name: Install Instances
+  hosts: localhost
+  become: true
+  become_method: sudo
+  user: ec2-user
+  tasks:
+  key_name: laptop
+    instance_type: t2.micro
+    image: ami-074cce78125f09d61
+    wait: yes
+    group: webserver
+    count: 5
+   
