@@ -1,15 +1,13 @@
---- # Connection
-# ansible-playbook ec2.yaml
-- name: Install Instances
+   # ansible-playbook ec2.yaml 
+---
+- name: Add ec2
   hosts: localhost
-  become: true
-  become_method: sudo
-  user: ec2-user
   tasks:
-  key_name: laptop
-    instance_type: t2.micro
-    image: ami-074cce78125f09d61
-    wait: yes
-    group: webserver
-    count: 5
-   
+  
+  - amazon.aws.ec2:
+      key_name: laptop
+      instance_type: t2.micro
+      image: ami-074cce78125f09d61
+      wait: yes
+      count: 5
+      region: us-east-2
